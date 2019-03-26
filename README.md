@@ -1,5 +1,13 @@
 # 后台项目
 
+## 下载启动
+
+$npm i 
+
+$node ./app.js
+
+访问:http://127.0.0.1:3000
+
 ## 文件夹介绍
 <!-- MVC -->
 ​	app.js          入口文件
@@ -20,7 +28,7 @@
 ​	
 
 ```shell
-$cnpm i ejs express express-session markdown mongoose formidable -S
+$npm i ejs express express-session markdown mongoose formidable -S
 ```
 
 
