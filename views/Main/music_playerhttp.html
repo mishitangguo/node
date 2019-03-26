@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>音乐播放器</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/tplayer.css" />
+
+    <link rel="stylesheet" type="text/css" href="/Plugins/FontAwesome4.1/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+      
+        .jumbotron{
+            
+            margin: 0px;
+            text-align: center;
+           
+        }
+      
+    </style>
+    <script src="/Js/jquery.js"></script>
+
+    <script src="/Js/jquery-ui.js"></script>
+
+    <script src="/Js/tPlayer.js"></script>
+
+
+</head>
+
+<body>
+ <!-- 巨幕 -->
+ <div class="jumbotron">
+    <h1>播放器</h1>
+</div>
+<%- include("nav.html") -%>
+<!-- 巨幕 end -->
+    <div id="t_wrapper">
+
+        <div id="t_cover">
+
+   
+        	<img src="http://p2.music.126.net/uIFI3Zx-3aiMNsFlAMBxBQ==/109951163142162226.jpg?param=300x300">
+          
+        </div>
+
+    	<div id="t_top">
+
+    		<div id="t_title_info" style="top: -14px; ">
+
+    			<span class="artist"><%= data.result[0].title%></span>
+
+    			<span class="title"><%= data.result[0].author%></span>
+
+    		</div>
+
+    	</div>
+
+    	<div id="t_middle">
+
+    		<div id="play" style="top:-5px;"></div>
+
+    		<div id="pause" class="hidden" >
+
+    		</div>
+
+    		<div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="t_progress">
+
+                <div id="trackInfo">
+
+                    <div id="error">
+
+    				</div>
+
+                    <div id="current">0:00</div>
+
+                    <div id="duration">0:00</div>
+
+    			</div>
+
+    			<div style="width: 0%;" class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"></div>
+
+            	<span style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+
+            </div>
+
+    		<span id="prev" style="top:-5px;"></span>
+
+            <span id="next" style="top:-5px;"></span>
+
+    	</div>
+
+    	<div id="t_bottom">
+
+            <div id="range">
+
+                <div id="val"></div>
+
+                <div id="vol" ></div>
+
+                <div id="rangeVal"></div>
+
+            </div>
+
+            <div id="t_pls_show" class="noselectpls"></div>
+
+    	</div>
+
+    </div>
+
+    <div id="playlist">
+
+        <ul>
+            <% for(var i = 0 ; i < data.result.length; i++){%>
+            <li t_cover="<%= data.result[i].pic%>" t_artist="<%= data.result[i].title%>" t_name="<%= data.result[i].author%>">
+
+            	<a href="#"><%= data.result[i].title%></a>
+
+            	<audio preload="none">
+
+                    <source src="<%= data.result[i].url%>" type="audio/mp3">
+
+                    <source src="#" type="audio/ogg; codecs=vorbis">
+
+            	</audio>
+
+            </li>
+            <% } %>
+            <!-- <li t_cover="Moby.jpg" t_artist="Moby" t_name="The Last Day (with Skylar Grey)">
+
+            	<a href="#">Moby – The Last Day (with Skylar Grey)</a>
+
+                <audio preload="none">
+
+                    <source src="Media/Transformers2.mp3" type="audio/mp3">
+
+                    <source src="Media/Transformers2.htm" type="audio/ogg; codecs=vorbis">
+
+                </audio>
+
+            </li>
+
+            <li t_cover="lina.jpg" t_artist="LINA nananan" t_name="JIENIFO">
+
+            	<a href="#">LINA nananan– JIENIFO</a>
+
+                <audio preload="none">
+
+                    <source src="Media/Transformers2.mp3" type="audio/mp3">
+
+                    <source src="Media/Transformers2.htm" type="audio/ogg; codecs=vorbis">
+
+                </audio>
+
+            </li>
+
+            <li t_cover="birdy.jpg" t_artist="Birdy" t_name="Shelter">
+
+            	<a href="#">Birdy – Shelter</a>
+
+                <audio preload="none">
+
+                    <source src="Media/Transformers2.mp3" type="audio/mp3">
+
+                    <source src="Media/Transformers2.htm" type="audio/ogg; codecs=vorbis">
+
+                </audio>
+
+            </li> -->
+
+        </ul>
+
+    </div>
+
+</body>
+
+</html>

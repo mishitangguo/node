@@ -1,0 +1,37 @@
+<%- include("./public/header.html")-%>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>分类</h2>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="category/add" class="btn btn-primary">添加数据</a>
+        </div>
+    </div>
+</div>
+
+<!-- 表格代码 -->
+<div class="ibox-content white-bg">
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.result.forEach(function(key){ %>
+            <tr>
+                <td><%=key._id%></td>
+                <td><%=key.name%></td>
+                <td><a href="category/del/<%=key._id%>" class="btn btn-danger">删除</a></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+</div>
+<!-- 表格代码 end -->
+
+<%- include("./public/footer.html")-%>

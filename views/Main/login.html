@@ -1,0 +1,62 @@
+
+<!-- 如果有session值显示用户信息，否则显示未登陆状态 -->
+<% if(data.userinfo){ %>
+    <div class="col-md-4">
+        <div class="userInfo">
+            <h3>用户名：<span data-id="<%=data.userinfo._id%>"><%=data.userinfo.username%></span></h3>
+            <% if(data.userinfo.isAdmin){ %>
+                <h4><a href="/admin">管理后台</a></h4>
+                <h4><a href="/player">个人音乐播放器</a></h4>
+            <% } %>
+            
+            <h4><a href="javascript:;" id="out">退出登陆</a></h4>
+        </div>
+    </div>
+<% }else{ %>
+
+    <div class="col-md-4">
+        <form>
+            <h3>登陆</h3>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="button" id="login" class="btn btn-default">登陆</button>
+            <a class="btn btn-form">注册账户</a>
+        </form>
+        <form style="display:none;">
+            <h3>注册</h3>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">确认密码</label>
+                <input type="password" class="form-control" name="password2" placeholder="Password">
+            </div>
+    
+            <button type="button" id="zhuce" class="btn btn-default">注册</button>
+            <a class="btn btn-form">登陆用户</a>
+        </form>
+        <div class="userInfo" style="display:none">
+            <h3>用户名：<span data-id=""></span></h3>
+            <h4><a href="/admin">管理后台</a></h4>
+            <h4><a href="/player">个人音乐播放器</a></h4>
+            <h4><a href="javascript:;" id="out">退出登陆</a></h4>
+
+        </div>
+    </div>
+
+
+<% } %>
+
+
+<script src="/js/login.js"></script>

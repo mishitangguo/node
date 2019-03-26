@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jumbotron{
+            margin: 0px;
+            text-align: center;
+        }
+        .navbar-nav{
+            margin:0 auto;
+        }
+    </style>
+    
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 巨幕 -->
+    <div class="jumbotron">
+        <h1>WordPress</h1>
+    </div>
+    <!-- 巨幕 end -->
+    <%- include("nav.html") -%>
+    <div class="container">
+        <div class="row">
+            <!-- 左边数据列表 -->
+            <div class="col-md-8">
+                <h1><%= data.contents.title %></h1>
+                <h3><%= data.contents.addTime %></h3>
+                <h1><%- data.contents.description %></h1>
+                <h1><%- data.contents.content %></h1>
+                
+            
+            </div>
+            <!-- 右边登陆 -->
+            <%- include("login.html") -%>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $(".btn-form").click(function () {
+            $(this).parent().hide().siblings("form").show();
+        })
+    })
+</script>
+
+</html>

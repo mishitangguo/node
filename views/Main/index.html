@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jumbotron{
+            margin: 0px;
+            text-align: center;
+        }
+        .navbar-nav{
+            margin:0 auto;
+        }
+        .contents{
+            float: right;
+            margin: 0 10px 10px 0;
+        }
+    </style>
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 巨幕 -->
+    <div class="jumbotron">
+        <h1>博客</h1>
+    </div>
+    <!-- 巨幕 end -->
+    <%- include("nav.html") -%>
+    <div class="container">
+        <div class="row">
+            <!-- 左边数据列表 -->
+            <div class="col-md-8">
+                
+                <% data.contents.forEach(function(item){ %>
+                    <div class="panel panel-default clearfix">
+                            <div class="panel-heading">
+                                <h2><%= item.title%><small class="pull-right"><%= item.addTime%></small></h2>
+                            </div>
+                            <div class="panel-body">
+                                    <%- item.description%>
+                            </div>
+                            <a class="contents" href="/view/?contentid=<%=item.id%>">更多内容>>></a>
+                        </div>
+                <% }) %>
+                
+            
+            </div>
+            <!-- 右边登陆 -->
+            <%- include("login.html") -%>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    $(function () {
+        $(".btn-form").click(function () {
+            $(this).parent().hide().siblings("form").show();
+        })
+    })
+</script>
+
+</html>

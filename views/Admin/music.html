@@ -1,0 +1,53 @@
+<%- include("./public/header.html")-%>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>音乐</h2>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="music/add" class="btn btn-primary">上传文件</a>
+        </div>
+    </div>
+</div>
+
+<!-- 表格代码 -->
+<div class="ibox-content white-bg">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>歌名</th>
+                <th>歌手</th>
+                <th>简介</th>
+                
+                <th>播放</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0 ; i < data.result.length; i++){%>
+            <tr>
+                <th><%= data.result[i].title%></th>
+                <th><%= data.result[i].singer%></th>
+                <th><%= data.result[i].description %></th>
+               
+                <th>
+
+                    <div class="player">
+                        <audio controls>
+                            <!-- Audio files -->
+                            <source src="<%= data.result[i].music%>" type="audio/mp3">
+
+                            <!-- Fallback for browsers that don't support the <audio> element -->
+                            <a href="<%= data.result[i].music%>"></a>
+                        </audio>
+
+                    </div>
+                </th>
+            </tr>
+            <% }  %>
+        </tbody>
+    </table>
+</div>
+<!-- 表格代码 end -->
+
+<%- include("./public/footer.html")-%>
